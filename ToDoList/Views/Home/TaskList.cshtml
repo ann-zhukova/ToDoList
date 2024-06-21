@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Task List";
+}
+
+@model List<ToDoTask>
+
+<div class="text-center">
+    <h1 class="display-4">To Do list</h1>
+    <br/>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Назвние
+                </th>
+                <th>
+                    Описание
+                </th>
+                <th>
+                    Действие 
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var task in Model)
+                {
+                    <tr>
+                        <td>
+                            @task.Id
+                        </td>
+                        <td>
+                            @task.Name
+                        </td>
+                        <td>
+                            @task.Description
+                        </td>
+                        <td>
+                            <a asp-action="CreateEditTask" asp-route-id="@task.Id">Редактировать</a>
+                            <a asp-action="DeleteTask" asp-route-id="@task.Id">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-controller="Home" asp-action="CreateEditTask" class="btn btn-secondary" placeholder="id">
+    Создать задачу
+</a>
+

@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Create/Edit Task";
+}
+
+@model ToDoList.Models.ToDoTask
+
+<div class="text-center">
+    <h1 class="display-4">Создание новой задачи</h1>
+    <p>Запишите свои дела в одном месте</p>
+</div>
+<form asp-action="CreateEditForm" asp-asp-controller="Home">
+   
+    <input hidden class="form-control" type="number" name="id"  asp-for="Id"/>
+
+    <label class="mt-4">Назвние</label>
+    <input class="form-control" type="text" name="name" placeholder="введите название" asp-for="Name" />
+
+    <label class="mt-4">Описание </label>
+    <input class="form-control" type="text" name="description" placeholder="введите описание" asp-for="Description" />
+
+    <button class="btn btn-secondary mt-4" type="submit">Сохранить</button>
+</form>

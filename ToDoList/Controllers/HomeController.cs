@@ -26,6 +26,8 @@ namespace ToDoList.Controllers
         public IActionResult TaskList()
         {
             var ToDoList = _context.ToDoTasks.ToList();
+            var CountOfTask = _context.ToDoTasks.Count();
+            ViewBag.TaskList = CountOfTask;
             return View(ToDoList);
         }
         public IActionResult CreateEditTask(int? id)
